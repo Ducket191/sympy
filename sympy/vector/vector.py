@@ -588,6 +588,15 @@ class Cross(Expr):
             return Vector.zero
         return Expr.__radd__(self, other)
 
+    def __sub__(self, other):
+        if other == self:
+            return Vector.zero
+        return Expr.__sub__(self, other)
+
+    def __rsub__(self, other):
+        if other == self:
+            return Vector.zero
+        return Expr.__rsub__(self, other)
 
     def doit(self, **hints):
         return cross(self._expr1, self._expr2)
